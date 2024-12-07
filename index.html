@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gabriel Brammer - IT Specialist from Coal City, West Virginia">
+    <title>Gabriel Brammer | IT Specialist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            min-height: 100vh; /* Ensures the body fills the viewport */
+            display: flex;
+            flex-direction: column; /* Ensures the footer stays at the bottom */
+        }
+    
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        .content {
+            flex-grow: 1; /* Ensures the content section grows to fill available space */
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 80px; /* Provides space for the footer */
+        }
+    
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        h1 {
+            font-size: 3em;
+        }
+    
+        h2 {
+            font-size: 2em;
+            color: #333;
+        }
+    
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    
+        .contact-form div {
+            margin-bottom: 15px;
+        }
+    
+        .contact-form label {
+            font-size: 1.1em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+    
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        .contact-form button {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+    
+        .contact-form button:hover {
+            background-color: #555;
+        }
+    
+        #formMessage {
+            font-size: 1.1em;
+            color: green;
+            margin-top: 20px;
+        }
+    
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    
+        .scroll-to-top {
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            background-color: #00025c;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+        
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Gabriel Brammer</h1>
+        <p>IT Specialist | Coal City, West Virginia</p>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container">
+        <h2>Welcome to My Website!</h2>
+        <p>My name is Gabriel Brammer, and I am a skilled IT professional offering a wide range of services including computer repair, web design, programming, data recovery, and more. With extensive experience in PC building, system diagnostics, and IT support, I specialize in troubleshooting and resolving hardware and software issues for desktops, laptops, mobile devices, and more. I also provide expert data recovery services, ensuring your important files are safely retrieved when disaster strikes.</p>
+        <p>In addition to my technical expertise, I offer web development, coding (including Python, Java, and C), and custom solutions tailored to your unique needs. Whether you're looking to optimize your setup, recover lost data, build a website, or tackle a tech project, I have the skills and experience to deliver high-quality results. Feel free to reach out and let's discuss how I can help with your next project!</p>
+
+        <!-- Resume Section -->
+        <h2>My Resume</h2>
+        <p>Click below to view or download my resume:</p>
+        <a href="ResumePage.html" style="color: #003366; text-decoration: none; font-size: 1.2em;">View My Resume</a>
+
+        <h2>Contact Me</h2>
+        <!-- Contact Me Form -->
+        <form class="contact-form" id="contactForm" method="POST" action="https://api.web3forms.com/submit" target="iframeResult">
+            <!-- Web3Forms API access key -->
+            <input type="hidden" name="access_key" value="61484526-2e87-4dca-aad2-19296589b2d2" /> 
+        
+            <div>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div>
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- Feedback message -->
+        <p id="formMessage"></p>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p>&copy; 2024 Gabriel Brammer</p>
+</div>
+
+<div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+    ↑
+</div>
+
+<script>
+    // Display current year
+    const formMessage = document.getElementById('formMessage');
+    
+    // Handling form submission
+    document.getElementById('contactForm').onsubmit = function() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (name && email && message) {
+            formMessage.innerHTML = `Thank you, ${name}! Your message has been sent.`;
+        } else {
+            formMessage.innerHTML = 'Please fill out all fields before submitting.';
+        }
+    };
+
+    // Scroll to top functionality
+    window.onscroll = function() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    //Contact me form
+    document.getElementById('contactForm').onsubmit = function() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const formMessage = document.getElementById('formMessage');
+
+    if (name && email && message) {
+        // Here you can also send the form data via an API or email.
+        formMessage.innerHTML = `Thank you, ${name}! Your message has been sent.`;
+        formMessage.style.color = 'green';  // Success message color
+    } else {
+        formMessage.innerHTML = 'Please fill out all fields before submitting.';
+        formMessage.style.color = 'red';  // Error message color
+    }
+};
+
+</script>
+
+</body>
+</html>
